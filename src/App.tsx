@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext, useEffect, useState } from "react";
+import Container from "./components/Container";
+import Navbar from "./components/Navbar";
+import { LoadingContext } from "./context/LoadingContext";
+import { CharacterResponse, useRequests } from "./hooks/useRequests";
+import loadingSpinner from "./assets/spinner/Dual Ring-0.8s-197px.svg";
+import ModalComicDetail from "./components/ModalComicDetail";
+import { ComicsProvider } from "./context/ComicsContext";
+import { HerosContext, HerosProvider } from "./context/HerosContext";
+import MyMap from "./components/ModalGoogleMaps";
+import { ModalMapsProvider } from "./context/ModalContext";
 
 function App() {
+  const { loading } = useContext(LoadingContext);
+  if (loading) {
+    return <img src={loadingSpinner} alt="" />;
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HerosProvider>
+        <ModalMapsProvider>
+          <ComicsProvider>
+            <Navbar />
+            <Container />
+            <ModalComicDetail />
+            <MyMap />
+          </ComicsProvider>
+        </ModalMapsProvider>
+      </HerosProvider>
     </div>
   );
 }
