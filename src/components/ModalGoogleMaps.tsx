@@ -19,7 +19,7 @@ const MyMap = () => {
     useContext(ModalMapsContext);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyC4TmpTq0fxKlewCYSxVfuiMh4qTSLYQXM",
+    googleMapsApiKey: process.env.REACT_APP_API_KEY_GOOGLE as string,
   });
   const getLocationBrownser = () => {
     let cords = {} as ILocation;

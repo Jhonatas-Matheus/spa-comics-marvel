@@ -1,7 +1,7 @@
 import axios from "axios";
 import md5 from "md5";
-const publicApiKey = "6b744a131725a7d7b02425985fcccbd7";
-const privateApiKey = "521d8649c12006485e7f5d7363d5a775ac840dc1";
+const publicApiKey = process.env.REACT_APP_PUBLIC_API_KEY as string;
+const privateApiKey = process.env.REACT_APP_PRIVATE_API_KEY as string;
 const timestamp = Number(new Date());
 
 const stringToHash = timestamp + privateApiKey + publicApiKey;
