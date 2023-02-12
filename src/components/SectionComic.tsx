@@ -46,8 +46,10 @@ const SectionComic = () => {
           ))}
         </Swiper>
       ) : (
-        <div>
-          <p>Desculpe, não foi encontrado quadrinhos para esse personagem</p>
+        <div style={{ marginTop: "10em" }}>
+          <p style={{ textAlign: "center" }}>
+            Desculpe, não foi encontrado quadrinhos para esse personagem
+          </p>
         </div>
       )}
     </StyledSectionComic>
