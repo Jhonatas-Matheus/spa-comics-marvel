@@ -23,7 +23,7 @@ export const useRequests = () => {
       });
       return response.data.data.results as CharacterResponse[];
     } catch (error) {
-      toastFail("Deu ruim");
+      
     }
   };
   const fetchComicsOfCharacter = async (characterId: string) => {
@@ -32,10 +32,10 @@ export const useRequests = () => {
       const response: AxiosResponse = await api.get(
         `/characters/${characterId}/comics`
       );
-      toastSucess("Deu bom");
+      
       return response.data.data.results as Comics[];
     } catch (error) {
-      toastFail("Deu ruim");
+      
     }
   };
   return { loading, fetchAllCharacters, fetchComicsOfCharacter };
