@@ -39,7 +39,9 @@ const Inputs = (props: Props) => {
   const handleChangeHero = (id: string) => {
     fetchComics(id);
   };
-
+  useEffect(() => {
+    setLetter(alphabet[0]);
+  }, []);
   useEffect(() => {
     console.log(heros);
     console.log(displayHeros);
