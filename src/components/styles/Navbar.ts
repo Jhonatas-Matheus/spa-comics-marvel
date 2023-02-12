@@ -14,14 +14,24 @@ export const StyledNavbar = styled.nav`
     rgba(1, 1, 8, 1) 56%,
     rgba(213, 225, 227, 1) 100%
   );
+  div {
+    display: none;
+  }
   img {
     width: 30%;
     object-fit: scale-down;
   }
   @media (min-width: 768px) {
+    div {
+      display: flex;
+      gap: 1em;
+    }
     padding: 0 2em;
     img {
       width: 15%;
+    }
+    .icons {
+      display: none;
     }
   }
   @media (min-width: 1024px) {

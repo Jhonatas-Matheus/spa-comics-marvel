@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useRequests } from "../hooks/useRequests";
 import SectionComic from "./SectionComic";
+import loadingSpinner from "../assets/spinner/Dual Ring-0.8s-197px.svg";
 
 import { CharacterResponse } from "../hooks/useRequests";
 

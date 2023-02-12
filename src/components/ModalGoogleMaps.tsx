@@ -51,8 +51,8 @@ const MyMap = () => {
       <div className="content">
         <h2>Selecione o local para entrega</h2>
         <h3>
-          Você pode clicar em algum lugar do mapa para selecionar o destino da
-          entrega.
+          Você pode dar um duplo click em algum lugar do mapa para selecionar o
+          destino da entrega.
         </h3>
         <div className="map-container">
           {isLoaded ? (

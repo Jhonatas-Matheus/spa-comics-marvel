@@ -13,11 +13,10 @@ import { ICharacterInCache } from "../context/HerosContext";
 import { StyledSelect } from "./styles/InputMUI";
 import { ThemeProviderProps } from "@mui/material/styles/ThemeProvider";
 import { Comics } from "./Container";
+import SelectInput from "./Select";
 type Props = {};
 
 const Inputs = (props: Props) => {
-  // const classPerson = useStyles();
-
   const { fetchComicsOfCharacter } = useRequests();
 
   const { heros } = useContext(HerosContext);
@@ -40,7 +39,9 @@ const Inputs = (props: Props) => {
   const handleChangeHero = (id: string) => {
     fetchComics(id);
   };
-
+  useEffect(() => {
+    setLetter(alphabet[0]);
+  }, []);
   useEffect(() => {
     console.log(heros);
     console.log(displayHeros);
@@ -54,15 +55,25 @@ const Inputs = (props: Props) => {
 
   return (
     <div>
-      <StyledSelect onChange={(e) => handleChangeHero(e.target.value)}>
-        {displayHeros?.map((e) => (
-          <option value={e.id}>{e.name}</option>
-        ))}
+      <StyledSelect>
+        <label>
+          <span>Selecione a inicial do seu herói:</span>
+          <select onChange={(e) => handleChangeLetter(e.target.value)}>
+            {alphabet.map((e) => (
+              <option value={e}>{e}</option>
+            ))}
+          </select>
+        </label>
       </StyledSelect>
-      <StyledSelect onChange={(e) => handleChangeLetter(e.target.value)}>
-        {alphabet.map((e) => (
-          <option value={e}>{e}</option>
-        ))}
+      <StyledSelect>
+        <label>
+          <span>Selecione o seu herói:</span>
+          <select onChange={(e) => handleChangeHero(e.target.value)}>
+            {displayHeros?.map((e) => (
+              <option value={e.id}>{e.name}</option>
+            ))}
+          </select>
+        </label>
       </StyledSelect>
     </div>
   );
